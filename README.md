@@ -111,17 +111,23 @@ SSH into the control node and follow the steps below:
 Next we will install filebeat and metricbeat on the Elk server.
 
 - SSH into the jumpbox VM with the Ansible Control Node.
-- Copy [filebeat-config.yml](Ansible/filebeat-config.yml) and [metricbeat-confg.yml](Ansible/metricbeat-config.yml)into the ```/etc/ansible/files/``` directory.
+- Copy [filebeat-config.yml](Ansible/filebeat-config.yml) and [metricbeat-confg.yml](Ansible/metricbeat-config.yml) into the ```/etc/ansible/files/``` directory.
 
 ```curl https://raw.githubusercontent.com/unclescrewtape/redesigned-eureka/main/Ansible/filebeat-config.yml > /etc/ansible/files/filebeat-config.yml```
 
 ```curl https://raw.githubusercontent.com/unclescrewtape/redesigned-eureka/main/Ansible/metricbeat-config.yml > /etc/ansible/files/metricbeat-config.yml```
-	
-- In both config files you must input your elk server ip address.
+
+- In both config files you must input your elk server ip address. 
 	- Search for ```output.elsaticsearch``` and change ```hosts``` to 10.1.0.4:9200
 	- Search for ```setup.kibana``` and change ```host``` to 10.1.0.4:5601
 
-- Copy [filebeat-playbook yml](Ansible/filebeat-playbook.yml) to the /etc/ansible/roles/ directory
+- Copy [filebeat-playbook.yml](Ansible/filebeat-playbook.yml) and [metricbeat-playbook.yml](Ansible/metricbeat-playbook.yml) into the /etc/ansible/roles/ directory
 
 ```curl https://raw.githubusercontent.com/unclescrewtape/redesigned-eureka/main/Ansible/filebeat-playbook.yml > /etc/ansible/roles/```
 
+```curl https://raw.githubusercontent.com/unclescrewtape/redesigned-eureka/main/Ansible/metricbeat-playbook.yml > /etc/ansible/roles/```
+
+- Run each playbook in turn.
+
+```ansible-playbook /etc/ansible/roles/filebeat-playbook.yml```
+```ansible-playbook /etc/ansible/roles/metricbeat-playbook.yml```
