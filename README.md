@@ -132,3 +132,6 @@ Next we will install filebeat and metricbeat on the Elk server.
 ```ansible-playbook /etc/ansible/roles/filebeat-playbook.yml```
 
 ```ansible-playbook /etc/ansible/roles/metricbeat-playbook.yml```
+
+- Reboot Elk vm for changes to take effect.
+- Once the Elk server is back up and running, go to http://your.ELK-VM.External.IP:5601/app/kibana. In the left hand menu bar click on “Logs” or “Metrics” to view data.
