@@ -116,9 +116,10 @@ Next we will install filebeat and metricbeat on the Elk server.
 ```curl https://raw.githubusercontent.com/unclescrewtape/redesigned-eureka/main/Ansible/filebeat-config.yml > /etc/ansible/files/filebeat-config.yml```
 
 ```curl https://raw.githubusercontent.com/unclescrewtape/redesigned-eureka/main/Ansible/metricbeat-config.yml > /etc/ansible/files/metricbeat-config.yml```
-	- In both config files you must input your elk server ip address.
-		- Search for ```output.elsaticsearch``` and change ```hosts``` to 10.1.0.4:9200
-		- Search for ```setup.kibana``` and change ```host``` to 10.1.0.4:5601
+	
+- In both config files you must input your elk server ip address.
+	- Search for ```output.elsaticsearch``` and change ```hosts``` to 10.1.0.4:9200
+	- Search for ```setup.kibana``` and change ```host``` to 10.1.0.4:5601
 
 - Copy [filebeat-playbook yml](Ansible/filebeat-playbook.yml) to the /etc/ansible/roles/ directory
 
