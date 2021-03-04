@@ -89,6 +89,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the [Elk playbook](Ansible/ansible_playbook-elk.yml) file to the Ansible Control Node.
+
 ```/etc/ansible/ansible_playbook-elk.yml```
 - Update the hosts file to include the new VM and elk group. (Note: python 3 needs to be specified for the ansible interpreter.)
 ```
@@ -102,6 +103,7 @@ SSH into the control node and follow the steps below:
  10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 ```
 - Run the playbook.
+- 
 ```ansible-playbook /etc/ansible/ansible_playbook-elk.yml```
 - SSH into the Elk VM and run ```sudo docker ps``` to verify the playbook executed properly and that the container is running.
 - In a browser, go to <http://your.ELK-VM.External.IP:5601/app/kibana>. If installation was successful, you shold see Add Data to Kibana web page.
