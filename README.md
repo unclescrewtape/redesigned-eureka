@@ -103,19 +103,19 @@ SSH into the control node and follow the steps below:
  10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 ```
 - Run the playbook.
- 
+
 ```ansible-playbook /etc/ansible/ansible_playbook-elk.yml```
 - SSH into the Elk VM and run ```sudo docker ps``` to verify the playbook executed properly and that the container is running.
 - In a browser, go to <http://your.ELK-VM.External.IP:5601/app/kibana>. If installation was successful, you shold see Add Data to Kibana web page.
 
+Next we will install filebeat and metricbeat on the Elk server.
 
+- SSH into the jumpbox VM with the Ansible Control Node.
+- Copy the [filebeat-config yml](Ansible/filebeat-config.yml) into the ```/etc/ansible/files``` directory.
 
+```curl https://raw.githubusercontent.com/unclescrewtape/redesigned-eureka/main/Ansible/filebeat-config.yml > /etc/ansible/files/filebeat-playbook.yml```
 
+- Copy [filebeat-playbook yml](Ansible/filebeat-playbook.yml) to the /etc/ansible/roles/ directory
 
+```curl https://raw.githubusercontent.com/unclescrewtape/redesigned-eureka/main/Ansible/filebeat-playbook.yml > /etc/ansible/roles/```
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
