@@ -8,7 +8,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+ [Elk playbook](Ansible/ansible_playbook-elk.yml)
 
 This document contains the following details:
 - Description of the Topologu
@@ -23,12 +23,10 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network. Load balancers will help ensure the processing of inbound traffic will be shared across our vulnerable web servers. The Access controls will ensure that only authorized users will be able to connect to said web servers.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the VMs filesystems and system stats such as CPU usage.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the VMs filesystems (via filebeat) and system stats such as CPU usage (via metricbeat).
+
 
 The configuration details of each machine may be found below.
 
@@ -70,7 +68,7 @@ The following screenshot displays the result of running `docker ps` after succes
 	- Increase the available virtual memory and set use.
 	- Download and launch a docker elk container.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+[Successful Elk Docker ps output](Ansible/elk_docker_ps.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -90,8 +88,8 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
+- Copy the playbooks file to the Ansible Control Node.
+- Update the hosts file to include the Vms that are to be updated.
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
