@@ -14,8 +14,8 @@ This document contains the following details:
 - Description of the Topologu
 - Access Policies
 - ELK Configuration
-  - Beats in Use
-  - Machines Being Monitored
+ - Beats in Use
+ - Machines Being Monitored
 - How to Use the Ansible Build
 
 
@@ -88,8 +88,18 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the playbooks file to the Ansible Control Node.
-- Update the hosts file to include the Vms that are to be updated.
+- Copy the playbook file to the Ansible Control Node.
+- Update the hosts file to include the Vms in their proper groups.
+```
+ # /etc/ansible/hosts
+ [webservers]
+ 10.0.0.4 ansible_python_interpreter=/usr/bin/python3
+ 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+ 10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+
+ [elk]
+ 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+```
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
