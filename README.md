@@ -103,7 +103,7 @@ SSH into the control node and follow the steps below:
  10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 ```
 - Run the playbook.
-- 
+ 
 ```ansible-playbook /etc/ansible/ansible_playbook-elk.yml```
 - SSH into the Elk VM and run ```sudo docker ps``` to verify the playbook executed properly and that the container is running.
 - In a browser, go to <http://your.ELK-VM.External.IP:5601/app/kibana>. If installation was successful, you shold see Add Data to Kibana web page.
