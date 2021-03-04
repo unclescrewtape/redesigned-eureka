@@ -6,7 +6,7 @@ The files in this repository were used to configure the network depicted below.
 
 [Azure Web Diagram](Diagrams/Azure_web_diagram.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbok file may be used to install only certain pieces of it, such as Filebeat.
 
  [Elk playbook](Ansible/ansible_playbook-elk.yml)
 
@@ -89,7 +89,8 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the playbook file to the Ansible Control Node.
-- Update the hosts file to include the new VM and elk group. (Note: 
+```/etc/ansible/ansible_playbook-elk.yml```
+- Update the hosts file to include the new VM and elk group. (Note: python 3 needs to be specified for the ansible interpreter.)
 ```
  # /etc/ansible/hosts
  [webservers]
@@ -100,7 +101,14 @@ SSH into the control node and follow the steps below:
  [elk]
  10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 ```
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Run the playbook.
+- SSH into the Elk VM and run ```sudo docker ps``` to verify the playbook executed properly and that the container is running.
+- In a browser, go to <public.ip/app/kibana>. 
+
+
+
+
+
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
