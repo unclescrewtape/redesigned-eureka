@@ -61,12 +61,12 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because we can scale the infrastructure as needed and be up and running in minutes.
 
 The playbook implements the following tasks:
-
+- Download and install docker.io, python3 and docker python module.
+- Increase the available virtual memory and set use.
+- Download and launch a docker elk container.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-	- Download and install docker.io, python3 and docker python module.
-	- Increase the available virtual memory and set use.
-	- Download and launch a docker elk container.
+	
 
 [Successful Elk Docker ps output](Ansible/elk_docker_ps.png)
 
@@ -89,13 +89,13 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the playbook file to the Ansible Control Node.
-- Update the hosts file to include the Vms in their proper groups.
+- Update the hosts file to include the new VM and elk group. (Note: 
 ```
  # /etc/ansible/hosts
  [webservers]
- 10.0.0.4 ansible_python_interpreter=/usr/bin/python3
- 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
- 10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+ 10.0.0.7 ansible_python_interpreter=/usr/bin/python3
+ 10.0.0.9 ansible_python_interpreter=/usr/bin/python3
+ 10.0.0.11 ansible_python_interpreter=/usr/bin/python3
 
  [elk]
  10.1.0.4 ansible_python_interpreter=/usr/bin/python3
